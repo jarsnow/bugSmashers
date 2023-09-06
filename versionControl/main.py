@@ -1,5 +1,5 @@
 def main():
-    print("Hello hacknight! \N{dug}")
+    print("Hello hacknight! ")
 
 if __name__ == "__main__":
     main()
