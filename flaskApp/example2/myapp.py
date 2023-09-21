@@ -1,11 +1,8 @@
-
 from flask import Flask, render_template
-from flask_sockets import Sockets
 import json
 import random
 
 app = Flask(__name__)
-sockets = Sockets(app)
 
 
 quotes = json.load(open('quotes.json'))
@@ -26,6 +23,13 @@ def hp():
     
     return render_template('temp.html', title=title,quotes=quotesList,oneQuote=oneQuote)
     
+@app.route('/quotes')
+def quotes():
+    quotesList = getQuotes()
+
+    title = 'list of quotes'
+
+    return render_template('quotes.html', title=title, quotes=quotesList)
 
 if __name__ == '__main__':
     app.run(debug=True)
