@@ -4,10 +4,10 @@ import random
 
 app = Flask(__name__)
 
+with open('quotes.json', 'r') as f:
+    quotes = json.load(f)
 
-quotes = json.load(open('quotes.json'))
-
-quotesList = quotes["quotes"]
+quotesList = quotes['quotes']
 
 def getQuotes():
     return quotesList
@@ -18,7 +18,6 @@ def hp():
     quotesList = getQuotes()
     
     title = 'd3 server'
-    quotes = quotesList
     oneQuote = random.choice(quotesList)
     
     return render_template('temp.html', title=title,quotes=quotesList,oneQuote=oneQuote)
