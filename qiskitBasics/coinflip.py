@@ -1,5 +1,8 @@
 from qiskit import Aer, QuantumCircuit, transpile
 
+# This script will create a circuit that tapes 2 coins together
+# and flips them 1000 times!
+
 def main():
     # creating a quantum circuit with 2 qubits and 2 classical bits
     qc = QuantumCircuit(2, 2)
