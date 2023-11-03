@@ -44,7 +44,7 @@ def main():
     backend = Aer.get_backend("qasm_simulator")
 
     # transpiling/running the circuit
-    job = backend.run(transpile(qc, backend), shots=1000)
+    job = backend.run(transpile(qc, backend), shots=10000)
 
     # getting the result from the job
     result = job.result()
