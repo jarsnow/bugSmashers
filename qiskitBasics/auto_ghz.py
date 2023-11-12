@@ -29,7 +29,7 @@ def main():
 
     # adding the CNOT gates sequentially down to qbs
     for n in range(qbs - 1):
-        qc.cx(n, n + 1)
+        qc.cx(0, n + 1)
 
     # creating a measure barrier for clarity
     qc.barrier(range(qbs))
