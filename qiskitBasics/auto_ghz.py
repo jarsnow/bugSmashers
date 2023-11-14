@@ -29,7 +29,7 @@ def main():
 
     # adding the CNOT gates sequentially down to qbs
     for n in range(qbs - 1):
-        qc.cx(n, n + 1)
+        qc.cx(0, n + 1)
 
     # creating a measure barrier for clarity
     qc.barrier(range(qbs))
@@ -44,7 +44,7 @@ def main():
     backend = Aer.get_backend("qasm_simulator")
 
     # transpiling/running the circuit
-    job = backend.run(transpile(qc, backend), shots=1000)
+    job = backend.run(transpile(qc, backend), shots=10000)
 
     # getting the result from the job
     result = job.result()
