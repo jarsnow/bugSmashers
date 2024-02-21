@@ -4,85 +4,67 @@ valid_chars_arr = list(valid_chars)
 target_str = "hello world"
 
 class Individual:
-
     def __init__(self):
-        self.gene =""
+        self.gene = ""
         self.fitness = len(target_str)
+        
     def generate_gene(self):
-        genome = ""
-        for i in range(len(target_str)):
-            genome += random.choice(valid_chars_arr)
-            
-        self.gene = genome
+        new_gene = ""
+        for char in target_str:
+            new_gene += random.choice(valid_chars_arr)
+        self.gene = new_gene
     def determine_fitness(self):
-        fitness = 0
-        for index, char in enumerate(self.gene):
-            if target_str[index] != char:
-                fitness += 1
-        self.fitness = fitness
+        new_fitness = 0
+        for index, char in enumerate(target_str):
+            if self.gene[index] != char:
+                new_fitness += 1
+        self.fitness = new_fitness
+        
     def __repr__(self):
-        return f"{self.gene}:\t{self.fitness}"
+        return f"{self.gene}, {self.fitness}"
     
-def generate_population(size : int):
-    population = []
+def generate_first_pop(size):
+    new_pop = []
     for i in range(size):
         my_individual = Individual()
         my_individual.generate_gene()
         my_individual.determine_fitness()
-        population.append(my_individual)
-    return population
- 
-def best_of_population(population : list):
-    population.sort(key = lambda x: x.fitness)
-    population = population[:len(population)//2]
-    print(population)
-    return population
+        new_pop.append(my_individual)
+    return new_pop
 
-def mate(individual1, individual2):
-    out_gene = ""
-    for index, char in enumerate(target_str):
+def mate(population):
+    parent1 = random.choice(population)
+    parent2 = random.choice(population)
+    my_individual = Individual()
+    for i in range(len(target_str)):
         my_num = random.randint(0, 100)
+        
         if my_num < 45:
-            out_gene += individual1.gene[index]
+            my_individual.gene += parent1.gene[i]
         elif my_num >= 45 and my_num < 90:
-            out_gene += individual2.gene[index]
+            my_individual.gene += parent2.gene[i]
         else:
-            out_gene += random.choice(valid_chars_arr)
-    my_ind = Individual()
-    my_ind.gene = out_gene
-    my_ind.determine_fitness()
-    return my_ind
+            my_individual.gene += random.choice(valid_chars_arr)
+    my_individual.determine_fitness()
+    return my_individual
 
-def generate_new_population(old_population, size):
-    old_population = best_of_population(old_population)
+def evolve(population):
+    population.sort(key=lambda x: x.fitness)
+    natural_selection = population[:len(population)//4]
     new_pop = []
-    for i in range(size):
-        
-        individual1 = random.choice(old_population)
-        individual2 = random.choice(old_population)
-        
-        new_individual = mate(individual1, individual2)
-        new_pop.append(new_individual)
+    for i in range(len(population)):
+        new_pop.append(mate(natural_selection))
         
     return new_pop
 
-def check_fitness(population):
-    for i in range(10):
-        ind = random.choice(population)
-        if ind.fitness == 0:
-            return True, ind.gene
-    return False, ind.gene
+my_pop = generate_first_pop(1000)
+
+for i in range(150):
+    my_pop = evolve(my_pop)
     
-def main():
-    my_pop = generate_population(100)
-    
-    for i in range(150):
-        my_pop = generate_new_population(my_pop, 100)
-        finished, gene = check_fitness(my_pop)
-        if finished == True:
-            print("Found target string!")
-            break
-        
-main()
-        
-    
+    for i in range(100):
+        to_check = random.choice(my_pop)
+        print(to_check)
+        if to_check.fitness == 0:
+            print(f"FOUND TARGET\n\t{to_check}")
+            quit()
