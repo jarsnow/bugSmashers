@@ -8,6 +8,7 @@ Hack Nights are interactive events where enthusiasts gather to code, collaborate
 This repository houses an resources used in designing and delivering hack nights. Here's how to navigate and make the most of what's available:
 
 *Workshop Materials:* Find presentations and from past events organized by topics and dates.
+
 *Code Examples:* Access code examples guides that walk you through various aspects of workshops and presentations.
 
 *Questions?:* Reach out to us through GitHub Issues or our contact page.
