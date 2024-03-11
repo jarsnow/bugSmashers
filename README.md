@@ -5,7 +5,7 @@ Welcome to BugSmashers! This repository is your gateway to ACM's Hack Nights, a 
 Hack Nights are interactive events where enthusiasts gather to code, collaborate, and learn from each other. Whether you're a beginner looking to get your feet wet or an experienced coder seeking to polish your skills, Hack Nights offer something for everyone.
 
 ### How to Use This Repository
-This repository houses an resources used in designing and delivering Hack Nights. Here's how to navigate and make the most of what's available:
+This repository houses resources used in designing and delivering Hack Nights. Here's how to navigate and make the most of what's available:
 
 *Workshop Materials:* Find presentations and from past events organized by topics and dates.
 
