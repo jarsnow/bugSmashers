@@ -11,6 +11,6 @@ This repository houses resources used in designing and delivering Hack Nights. H
 
 *Code Examples:* Access code examples guides that walk you through various aspects of workshops and presentations.
 
-*Questions?:* Reach out to us through GitHub Issues or our contact page.
+*Questions?:* Reach out to us through GitHub Issues.
 
 Join us at BugSmashers to code, learn, and grow. Let's smash some bugs together!
