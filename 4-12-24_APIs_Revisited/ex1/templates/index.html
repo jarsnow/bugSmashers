@@ -11,9 +11,14 @@
         <input type="text" id="task-input" name="content" placeholder="Enter task">
         <button type="submit">Add Task</button>
     </form>
+
     <ul id="task-list">
         {% for task in tasks %}
-        <li>{{ task.content }}</li>
+        <li>{{ loop.index }}: {{ task.content }} <form action="/remove" method="POST" style="display: inline;">
+                <input type="hidden" name="task_id" value="{{ task.id }}">
+                <button type="submit">Remove</button>
+            </form>
+        </li>
         {% endfor %}
     </ul>
 </body>
