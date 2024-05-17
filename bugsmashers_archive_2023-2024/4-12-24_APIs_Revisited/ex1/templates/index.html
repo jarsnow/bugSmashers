@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <form id="task-form" action="/add" method="POST">
+        <input type="text" id="task-input" name="content" placeholder="Enter task">
+        <button type="submit">Add Task</button>
+    </form>
+
+    <ul id="task-list">
+        {% for task in tasks %}
+        <li>{{ loop.index }}: {{ task.content }} <form action="/remove" method="POST" style="display: inline;">
+                <input type="hidden" name="task_id" value="{{ task.id }}">
+                <button type="submit">Remove</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,6 +1,0 @@
-﻿3/6 PBL Resc
-Roman Numerals Solution: https://www.geeksforgeeks.org/python-program-for-converting-roman-numerals-to-decimal-lying-between-1-to-3999/
-
-
-Project Awesome:
-https://project-awesome.org/
