@@ -1,0 +1,3 @@
+https://www.geeksforgeeks.org/what-is-command-line-interface-cli/
+https://www.geeksforgeeks.org/basic-linux-commands/
+https://youtu.be/IYZDIhfAUM0?si=2b0z0V3JEK6v23gB
