@@ -1,0 +1,48 @@
+body {
+    background-color: blueviolet;
+    display: flex;
+    justify-content: center;
+}
+
+.login_container {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    width: 40%;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+}
+
+.login_container h1 {
+    font-size: 25px;
+}
+
+.login_container form {
+    padding: 10px;
+    text-align: left;
+    
+}
+
+.login_container form input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form_box {
+    padding: 0px;
+    margin: 10px 0px;
+}
+
+.button {
+    font-size: 20px;
+    color:white;
+    background: linear-gradient(to right, red , yellow);
+    border: 0px;
+    padding: 8px;
+    margin-top: 20px;
+    border-radius: 1000px;
+}
+
+.signup {
+    padding: 10px;
+}
